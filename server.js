@@ -1,11 +1,21 @@
+// Import postgres client
+const {Client} = require("pg");
 const express = require('express');
 const app = express();
 const port = 8080;
 
+// Connect to postgres database
+const client = new Client({
+    password: 'root',
+    user: 'root',
+    host: 'postgres'
+});
+
+
 app.get('/', (req, res) => {
     res.setHeader('Content-Type', 'text/html');
     res.status(200);
-    res.send('<h1>Hello World!!!!</h1>');
+    res.send('<h1>Hello World!</h1>');
 });
 
 app.listen(port, () => {
